@@ -5,12 +5,12 @@ export const Footer = () => {
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
 
-      <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
+      <section className="container grid grid-cols-2 py-20 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div className="col-span-full xl:col-span-2">
           <a
             rel="noreferrer noopener"
             href="/"
-            className="font-bold text-xl flex"
+            className="flex text-xl font-bold"
           >
             <LogoIcon />
             ShadcnUI/React
@@ -18,7 +18,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Follow US</h3>
+          <h3 className="text-lg font-bold">Follow US</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -51,7 +51,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
+          <h3 className="text-lg font-bold">Platforms</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -84,7 +84,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">About</h3>
+          <h3 className="text-lg font-bold">About</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -117,7 +117,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
+          <h3 className="text-lg font-bold">Community</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -150,16 +150,16 @@ export const Footer = () => {
         </div>
       </section>
 
-      <section className="container pb-14 text-center">
+      <section className="container text-center pb-14">
         <h3>
           &copy; 2024 Landing page made by{" "}
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
-            className="text-primary transition-all border-primary hover:border-b-2"
+            href="https://www.linkedin.com/in/yasin-emad-b4326529b/"
+            className="transition-all text-primary border-primary hover:border-b-2"
           >
-            Leo Miranda
+            Yasin Emad
           </a>
         </h3>
       </section>

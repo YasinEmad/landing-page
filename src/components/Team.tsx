@@ -1,4 +1,3 @@
-import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -13,12 +12,7 @@ interface TeamProps {
   imageUrl: string;
   name: string;
   position: string;
-  socialNetworks: SociaNetworkslProps[];
-}
-
-interface SociaNetworkslProps {
-  name: string;
-  url: string;
+  socialNetworks: string[];
 }
 
 const teamList: TeamProps[] = [
@@ -26,70 +20,25 @@ const teamList: TeamProps[] = [
     imageUrl: "https://i.pravatar.cc/150?img=35",
     name: "Emma Smith",
     position: "Product Manager",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    socialNetworks: ["Linkedin", "Facebook", "Instagram"],
   },
   {
     imageUrl: "https://i.pravatar.cc/150?img=60",
     name: "John Doe",
     position: "Tech Lead",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    socialNetworks: ["Linkedin", "Facebook", "Instagram"],
   },
   {
     imageUrl: "https://i.pravatar.cc/150?img=36",
     name: "Ashley Ross",
     position: "Frontend Developer",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-
-      {
-        name: "Instagram",
-        url: "https://www.instagram.com/",
-      },
-    ],
+    socialNetworks: ["Linkedin", "Instagram"],
   },
   {
     imageUrl: "https://i.pravatar.cc/150?img=17",
     name: "Bruce Rogers",
     position: "Backend Developer",
-    socialNetworks: [
-      {
-        name: "Linkedin",
-        url: "https://www.linkedin.com/in/leopoldo-miranda/",
-      },
-      {
-        name: "Facebook",
-        url: "https://www.facebook.com/",
-      },
-    ],
+    socialNetworks: ["Linkedin", "Facebook"],
   },
 ];
 
@@ -98,10 +47,8 @@ export const Team = () => {
     switch (iconName) {
       case "Linkedin":
         return <Linkedin size="20" />;
-
       case "Facebook":
         return <Facebook size="20" />;
-
       case "Instagram":
         return <Instagram size="20" />;
     }
@@ -112,8 +59,8 @@ export const Team = () => {
       id="team"
       className="container py-24 sm:py-32"
     >
-      <h2 className="text-3xl md:text-4xl font-bold">
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+      <h2 className="text-3xl font-bold md:text-4xl">
+        <span className="text-transparent bg-gradient-to-b from-primary/60 to-primary bg-clip-text">
           Our Dedicated{" "}
         </span>
         Crew
@@ -124,50 +71,42 @@ export const Team = () => {
         dolor pariatur sit!
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10">
-        {teamList.map(
-          ({ imageUrl, name, position, socialNetworks }: TeamProps) => (
-            <Card
-              key={name}
-              className="bg-muted/50 relative mt-8 flex flex-col justify-center items-center"
-            >
-              <CardHeader className="mt-8 flex justify-center items-center pb-2">
-                <img
-                  src={imageUrl}
-                  alt={`${name} ${position}`}
-                  className="absolute -top-12 rounded-full w-24 h-24 aspect-square object-cover"
-                />
-                <CardTitle className="text-center">{name}</CardTitle>
-                <CardDescription className="text-primary">
-                  {position}
-                </CardDescription>
-              </CardHeader>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 gap-y-10">
+        {teamList.map(({ imageUrl, name, position, socialNetworks }) => (
+          <Card
+            key={name}
+            className="relative flex flex-col items-center justify-center mt-8 bg-muted/50"
+          >
+            <CardHeader className="flex items-center justify-center pb-2 mt-8">
+              <img
+                src={imageUrl}
+                alt={`${name} ${position}`}
+                className="absolute object-cover w-24 h-24 rounded-full -top-12 aspect-square"
+              />
+              <CardTitle className="text-center">{name}</CardTitle>
+              <CardDescription className="text-primary">
+                {position}
+              </CardDescription>
+            </CardHeader>
 
-              <CardContent className="text-center pb-2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </CardContent>
+            <CardContent className="pb-2 text-center">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </CardContent>
 
-              <CardFooter>
-                {socialNetworks.map(({ name, url }: SociaNetworkslProps) => (
-                  <div key={name}>
-                    <a
-                      rel="noreferrer noopener"
-                      href={url}
-                      target="_blank"
-                      className={buttonVariants({
-                        variant: "ghost",
-                        size: "sm",
-                      })}
-                    >
-                      <span className="sr-only">{name} icon</span>
-                      {socialIcon(name)}
-                    </a>
+            <CardFooter>
+              <div className="flex gap-2">
+                {socialNetworks.map((icon) => (
+                  <div
+                    key={icon}
+                    className="p-2 border rounded-full border-border"
+                  >
+                    {socialIcon(icon)}
                   </div>
                 ))}
-              </CardFooter>
-            </Card>
-          )
-        )}
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </section>
   );

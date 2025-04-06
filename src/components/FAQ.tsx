@@ -13,11 +13,6 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: "Is this template free?",
-    answer: "Yes. It is a free ChadcnUI template.",
-    value: "item-1",
-  },
-  {
     question: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint labore quidem quam? Consectetur sapiente iste rerum reiciendis animi nihil nostrum sit quo, modi quod.",
@@ -50,9 +45,9 @@ export const FAQ = () => {
       id="faq"
       className="container py-24 sm:py-32"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <h2 className="mb-4 text-3xl font-bold md:text-4xl">
         Frequently Asked{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+        <span className="text-transparent bg-gradient-to-b from-primary/60 to-primary bg-clip-text">
           Questions
         </span>
       </h2>
@@ -76,12 +71,12 @@ export const FAQ = () => {
         ))}
       </Accordion>
 
-      <h3 className="font-medium mt-4">
+      <h3 className="mt-4 font-medium">
         Still have questions?{" "}
         <a
           rel="noreferrer noopener"
           href="#"
-          className="text-primary transition-all border-primary hover:border-b-2"
+          className="transition-all text-primary border-primary hover:border-b-2"
         >
           Contact us
         </a>
